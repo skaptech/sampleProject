@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>Zion Radio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Beauty Spot App Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<meta charset utf="8">
+        <!--font-awsome-css-->
+           <link rel="stylesheet" href="css/font-awesome.min.css"> 
+		<!--bootstrap-->
+			<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!--custom css-->
+			<link rel="stylesheet" href="css/jquery-ui.css" />
+			<link href="css/style.css" rel="stylesheet" type="text/css"/>
+			<style>
+      #imge {
+       -webkit-transition: all 0.5s ease 0s;
+       -moz-transition: all 0.5s ease 0s;
+       -o-transition: all 0.5s ease 0s;
+       -ms-transition: all 0.5s ease 0s;
+       transition: all 0.5s ease 0s;
+       cursor:pointer;
+     }
+     
+     #imge:hover {
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+    </style>
+        <!--component-css-->
+			<script src="js/jquery-2.1.4.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/Chart.js"></script>
+			 <!--script-->
+            <script src="js/bigSlide.js"></script>
+            <script>
+				$(document).ready(function() {
+				$('.menu-link').bigSlide();
+				});
+            </script>
+            <!--script-->
+			
+		<!---start-date-piker---->
+			
+				<script src="js/jquery-ui.js"></script>
+				    <script>
+											  $(function() {
+												$( "#datepicker,#datepicker1" ).datepicker();
+											  });
+					</script>
+		<!---/End-date-piker---->
+	<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+	<!-- start-smoth-scrolling -->
+		
+		<!--script-->
+		<link href='//fonts.googleapis.com/css?family=Rajdhani:400,300,500,600,700' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    </head>
+<body>
+<div class="body-back">
+	<div class="masthead pdng-stn1">
+		
+		<div class="phone-box wrap push">
+			<div id="home" class="menu-notify">
+				<div class="profile-left">
+					<a href="#menu" ><i class="fa fa-home"></i></a>
+				</div>
+				<div class="Profile-mid logo">
+					<h1>
+						<a class="link link--yaku" href="single.html">
+							<span>Z</span><span>i</span><span>o</span><span>n</span> <span>R</span><span>a</span><span>d</span><span>i</span><span>o</span>				
+						</a>
+					</h1>
+				</div>
+				<div class="Profile-right">
+					<div id="dd1" class="wrapper-dropdown-1" tabindex="1"><i class="fa fa-ellipsis-v "></i>
+						<ul class="dropdown">
+							<li><a class="scroll" href="#home">Home </a></li>
+							<li><a class="scroll" href="#services">Services</a></li>
+							<li><a class="scroll" href="#appoint">Appointments</a></li>
+							<li><a class="scroll" href="#contact">Contact</a></li>
+						</ul>
+							<script type="text/javascript">
+														function DropDown(el) {
+															this.dd = el;
+															this.initEvents();
+														}
+														DropDown.prototype = {
+															initEvents : function() {
+																var obj = this;
+											
+																obj.dd.on('click', function(event){
+																	$(this).toggleClass('active');
+																	event.stopPropagation();
+																});	
+															}
+														}
+														$(function() {
+											
+															var dd = new DropDown( $('#dd1') );
+											
+															$(document).click(function() {
+																// all dropdowns
+																$('.wrapper-dropdown-1').removeClass('active');
+															});
+											
+														});
+							</script>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div> 
+			<div  class="banner">
+				<script src="js/responsiveslides.min.js"></script>
+				<script>
+									// You can also use "$(window).load(function() {"
+									$(function () {
+									 // Slideshow 4
+									$("#slider3").responsiveSlides({
+										auto: true,
+										pager: true,
+										nav: true,
+										speed: 500,
+										namespace: "callbacks",
+										before: function () {
+									$('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+										$('.events').append("<li>after event fired.</li>");
+										}
+										});
+										});
+				</script>
+				<div  id="top" class="callbacks_container">
+					<ul class="rslides" id="slider3">
+						<li>
+							<div class="screen_one">
+								
+							</div>
+						</li>
+						<li>
+							<div class="screen_three">
+							
+							</div>
+						</li>
+						<li>
+							<div class="screen_one">
+								
+							</div>
+						</li>
+						<li>
+							<div class="screen_three">
+							
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="like-icons text-center">
+				<ul>
+					<li>
+						<a href="about.html"><img src="img/1.png" id="imge"  alt=" " /></a>
+						<p>About</p>
+					</li>
+					<li>
+						<a href="contact.html"><img src="img/2.png" id="imge"  alt=" " /></a>
+						<p>Contact</p>
+					</li>
+					<li>
+						<a href="enquiry.html"><img src="img/3.png" id="imge"  alt=" " /></a>
+						<p>Enquire</p>
+					</li>
+					
+				</ul>
+				<ul>
+					<li>
+						<a href="photos.html"><img src="img/4.png" id="imge"  alt=" " /></a>
+						<p>Photo</p>
+					</li>
+					<li>
+						<a href="songs.html"><img src="img/5.png" id="imge" =" " /></a>
+						<p>Audio</p>
+					</li>
+					<li>
+						<a href="video.html"><img src="img/6.png" id="imge" alt=" " /></a>
+						<p>Video</p>
+					</li>
+					
+				</ul>
+				<ul>
+					<li>
+						<a href="7zion.html"><img src="img/7.png" id="imge" alt=" " /></a>
+						<p>Zion</p>
+					</li>
+					<li>
+						<a href="redeem.html"><img src="img/8.png" id="imge" alt=" " /></a>
+						<p>Redeem Ministry</p>
+					</li>
+					<li>
+						<a href="schedule.html"><img src="img/9.png" id="imge" alt=" " /></a>
+						<p>Schedule</p>
+					</li>
+					
+				</ul>
+				
+			</div>
+				
+				
+		</div>
+	</div>
+</div>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

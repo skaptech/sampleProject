@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+   <title>Zion Radio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Beauty Spot App Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android  Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<meta charset utf="8">
+        <!--font-awsome-css-->
+           <link rel="stylesheet" href="css/font-awesome.min.css"> 
+		<!--bootstrap-->
+			<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!--custom css-->
+			<link rel="stylesheet" href="css/jquery-ui.css" />
+			<link href="css/style.css" rel="stylesheet" type="text/css"/>
+			
+        <!--component-css-->
+			<script src="js/jquery-2.1.4.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			
+	<!-- star
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<!-- must have -->
+<link href='css/fullcalendar.min.css' rel='stylesheet' />
+<link href='css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='lib/moment.min.js'></script>
+<script src='lib/jquery.min.js'></script>
+<script src='js/fullcalendar.min.js'></script>
+
+<script src='js/jquery-migrate-3.0.0.js'></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$.ajax({
+	
+			type: 'POST',
+			dataType: 'json',
+			data : 'song',
+		    url: 'http://radio.skaptechnologies.com/getdata.php',
+		 
+		success : function(data) {
+				//alert(data[2].image);	
+				var album_name = data[0].album_name;
+		
+                var song_name = data[0].song_name;
+                		alert(song_name);
+				var ctime1 = data[0].time;
+				var s='http://radio.skaptechnologies.com/admin/uploads/'+song_name;
+              var album_name1 = data[1].album_name;
+                var song_name1 = data[1].song_name;
+				var s1='http://radio.skaptechnologies.com/admin/uploads/'+song_name1;
+			
+				//var song='<div class="audio3_html5_bottom_div"><div class="audio3_html5"><audio id="audio3_html5_white" ><div class="xaudioplaylist" ><ul><li class="xtitle">'+song_name+'</li><li class="xauthor">'+album_name+'</li><li class="xsources_mp3">admin/uploads/'+song_name+'</li> </ul><ul><li class="xtitle">'+song_name1+'</li><li class="xauthor">'+album_name1+'</li> <li class="xsources_mp3">admin/uploads/'+song_name1+'</li></ul> </div> </audio>  </div> </div>';   
+              //alert(song); 
+			 //var song='<audio  controls  autoplay loop><source src="'+s+'" type="audio/mp3"></audio> '
+				var img='<img src="http://radio.skaptechnologies.com/admin/banner/'+data[2].image+'" class="img-responsive">';
+				$('#banner').html(img);
+				var song='<li audiourl="1.mp3" cover="cover1.jpg" artist="Artist 1"></li>';
+				//alert(song);
+				$('#song').html(song);
+				 $('#result1').html("Title : "+data[3].title);
+			  $('#result').html('<marquee>'+song_name+'</marquee>');
+			   var brand_checklist = "sno="+song_name1;
+			var count = 0;
+			  var song;
+    var tracker = $('.tracker');
+    var volume = $('.volume');
+
+    function initAudio(elem) {
+        var url = elem.attr('audiourl');
+		
+        var title = elem.text();
+        var cover = elem.attr('cover');
+        var artist = elem.attr('artist');
+
+        $('.player .title').text(title);
+        $('.player .artist').text(artist);
+        $('.player .cover').css('background-image','url(data/' + cover+')');;
+
+        song = new Audio(s);
+		song.play();
+		song.currentTime=ctime1;
+			document.getElementById('sound').addEventListener('click', function (e)
+			{
+				e = e || window.event;
+				if(song.muted = !song.muted)
+				{
+				var sound='<img src="images/mute.png"  class="img-responsive mute">';
+				 $('#sound').html(sound);
+				 e.preventDefault();
+				}
+				else
+				{
+				var sound='<img src="images/unmute.png" class="img-responsive mute">';
+				 $('#sound').html(sound);
+				 e.preventDefault();
+				}
+				
+				 e.preventDefault();
+			}, false);
+			
+			
+            song.addEventListener('ended', function () {
+                count++;
+		  if (count ==1) {
+
+					
+			  window.location.reload(); 
+		  
+		  
+		  }
+            }, false);   
+        // timeupdate event listener
+        song.addEventListener('timeupdate',function (){
+            var curtime = parseInt(song.currentTime, 10);
+            tracker.slider('value', curtime);
+        });
+
+       
+    }
+    function playAudio() {
+        song.play();
+
+        tracker.slider("option", "max", song.duration);
+
+        $('.play').addClass('hidden');
+        $('.pause').addClass('visible');
+    }
+    function stopAudio() {
+        song.pause();
+
+        $('.play').removeClass('hidden');
+        $('.pause').removeClass('visible');
+    }
+
+    // initialization - first element in playlist
+    initAudio($('.playlist li:first-child'));
+
+    // set volume
+    song.volume = 0.8;
+
+    // initialize the volume slider
+    
+           /* var audio = document.createElement("audio");
+            audio.controls = true;
+			audio.controls = "controls";
+            audio.src = s;
+			document.getElementById('sound').addEventListener('click', function (e)
+			{
+				e = e || window.event;
+				if(audio.muted = !audio.muted)
+				{
+				var sound='<img src="images/mute.png"  class="img-responsive mute">';
+				 $('#sound').html(sound);
+				 e.preventDefault();
+				}
+				else
+				{
+				var sound='<img src="images/unmute.png" class="img-responsive mute">';
+				 $('#sound').html(sound);
+				 e.preventDefault();
+				}
+				
+				 e.preventDefault();
+			}, false);
+			
+			
+            audio.addEventListener('ended', function () {
+                count++;
+  if (count ==1) {
+
+			
+      window.location.reload(); 
+  
+  
+  }
+            }, false);           
+			audio.currentTime = 60;
+  		
+            audio.play(); */
+
+    }
+	
+
+});
+});
+
+</script>
+
+<script >
+function closeMeNow() 
+{
+var answer = confirm ("Are you sure you want to exit?")
+if (answer){
+
+ navigator.app.exitApp();
+}
+}
+
+
+</script>
+<script>
+
+	$(document).ready(function() {
+	
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaDay,listWeek'
+			},
+			defaultDate: new Date(),
+			editable: true,
+			navLinks: true, // can click day/week names to navigate views
+			eventLimit: true, // allow "more" link when too many events
+			events: {
+				url: 'http://radio.skaptechnologies.com/get-events.php',
+				
+				error: function() {
+					$('#script-warning').show();
+				}
+			},
+			eventClick: function(calEvent, jsEvent, view) {
+
+					alert('Event Description: ' + calEvent.id);
+					//alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+					//alert('View: ' + view.name);
+
+					// change the border color just for fun
+					$(this).css('border-color', 'red');
+
+    },
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}
+		});
+		
+	});
+
+</script>
+<style>
+body {
+    background-image: url("images/2.jpg");
+    background-color: #cccccc;
+}
+
+
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#script-warning {
+		display: none;
+		background: #eee;
+		border-bottom: 1px solid #ddd;
+		padding: 0 10px;
+		line-height: 40px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		color: red;
+	}
+
+	#loading {
+		display: none;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 40px auto;
+		padding: 0 10px;
+	}
+
+</style>
+</style>
+		
+		<!--script-->
+		<link href='//fonts.googleapis.com/css?family=Rajdhani:400,300,500,600,700' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    </head>
+<body>
+<div class="body-back">
+	<div class="masthead pdng-stn1">
+		
+		<div class="phone-box wrap push">
+			
+			<div id="services" class="menu-notify1">
+				<div class="profile-left">
+					<a href="index.html" ><i class="fa fa-chevron-left"></i></a>
+				</div>
+				<div class="Profile-mid logo">
+					<h1>
+						<a class="link link--yaku" href="single.html">
+							<span>Z</span><span>i</span><span>o</span><span>n</span> <span>R</span><span>a</span><span>d</span><span>i</span><span>o</span>				
+						</a>
+					</h1>
+				</div>
+				<div class="Profile-right">
+				<a href="index.html" ><i class="fa fa-home"></i></a>
+					
+				</div>
+				<div class="clearfix"></div>
+			</div> 
+			<div class="specials">
+				<div class="accordion">
+							<div class="container">
+						 	
+				<center><p class="line">Songs of Zion Radio </p><br/>
+				        <div class="transbox">
+						<p id="result1" style="color: blue;font-size: 1.8em;"></p>
+                                <p id="result" style="color:#020202;"></p>
+                        </div><br/>
+				
+					<span id="banner"><img src="images/tree.jpg" class="img-responsive" alt="Responsive image"></span></center>
+					
+				
+				<br/>
+				<br/>
+				<center>
+			
+				<table class="table-responsive">
+				
+				<tr>
+				<td  style="padding-right: 3em;cursor: pointer;" >
+				    <img src="images/help.png" class="img-responsive" data-toggle="modal" data-target="#myModal">
+				</td>
+				<td   style="padding-right: 3em;cursor: pointer;" id="sound">
+   
+				    <img src="images/unmute.png"  id="mute" class="img-responsive">
+    
+				</td>
+				<td  style="padding-right: 3em;cursor: pointer;">
+				        <a href="#" onClick="closeMeNow();" data-role="button"><img src="images/off.png" class="img-responsive"><a/>
+				</td>
+				
+	        	<td style="padding-right: 3em;cursor: pointer;"   >
+				       <img src="images/calendar1.png" class="img-responsive" data-toggle="modal" data-target="#mymodall1">
+				</td>
+				
+				
+				</tr>
+				</table>
+				
+				</center> 
+				<div class="clearfix"> </div>
+				
+
+
+						  </div> 
+								
+						<div class="modal fade" id="mymodall1" role="dialog">
+							<div class="modal-dialog">
+							
+							  <!-- Modal content-->
+							  <div class="modal-content">
+								<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
+								
+								</div>
+								<div class="modal-body">
+								
+								<div id='script-warning'>
+								<code>get-events.php</code> must be running.
+							</div>
+
+							<div id='loading'>loading...</div>
+
+							<div id='calendar'></div>
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							  </div>
+							  
+							</div>		</div>		
+						 <div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+							
+							  <!-- Modal content-->
+							  <div class="modal-content">
+								<div class="modal-header"><button type="button" class="close" data-dismiss="modal">&times;</button>
+								 <img  src="images/About1.jpg" class="img-responsive">
+								  
+								  
+								</div>
+								<div class="modal-body">
+								<p style="text-align:justify;color:#020202;"> This radio is 24/7 of great music and arrangements of your favorite gospel/worship hymns. The believers in the Church beautifully sing these songs during worship. Most of the songs are based on the scriptures and intimate one-to-one relationship with Jesus. Each song delivers a sermon. <br />Bro. Bakht Singh first experienced the love and presence of the Lord Jesus Christ when he was an engineering student in Canada in 1929. Earlier he was opposing Christ and Christianity. Though he had torn-up the Bible, he has greatly developed an intimate desire and love for the Lord Jesus Christ and had intuition to read and study the Bible. After hearing the Lord's voice and having been convicted of his sinful life, he confessed his sins and accepted the Lord Jesus Christ as his Savior and dedicated his life in serving Him. He was India's foremost evangelist, preacher and indigenous church planter who founded churches based on New Testament principles. He began a worldwide indigenous church-planting movement in India that even tually saw more than 10,000 local churches. These songs were graciously provided by Bro. Bakth Singh’s co-workers viz. Bro.Lazar Sen, Bro. Jordan Khan, Bro. Martin Sathyanathan, Bro. Moses, Bro. G. John, Br. BJ Paul, many more Saints who worked for a long time in the service of the Lord with Bro. Bakht Singh. <br />All these songs are still being sung today in Assemblies throughout India. All these songs are being translated in many Indian languages. By listening to these songs of Zion you will not only be blessed in addition to that, you will experience the salvation, experience the worship, experience the sermon and feel the Heavenly presence of God.<br />By<br />Joseph. D<br />Zion<br />House of worship<br />KGF, Karnataka<br />00 91 94818 62928.
+								</div>
+								<div class="modal-footer">
+								  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							  </div>
+							  
+							</div>
+						  </div>
+						 <script src="js/bootstrap.js"></script>						  
+										</div>
+				
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
